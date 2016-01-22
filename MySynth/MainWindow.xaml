@@ -1,0 +1,296 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MySynth"
+        xmlns:local1="clr-namespace:MySynth;assembly=MySynth" x:Class="MySynth.MainWindow"
+        mc:Ignorable="d"
+        Name="main"
+        Title="MySynth" Height="469" Width="616" ShowInTaskbar="False" Icon="Resources/Rade8-Minium-2-Sidebar-Music.ico">
+    <Canvas RenderTransformOrigin="0.499,0.272">
+        <Rectangle Height="52" Width="289" Canvas.Left="25" Canvas.Top="61" Stroke="#FFBDBDBD"/>
+        <Rectangle Height="66" Width="289" Canvas.Left="25" Canvas.Top="118" Stroke="#FFBDBDBD"/>
+        <Rectangle Height="95" Width="111" Canvas.Left="25" Canvas.Top="191" Stroke="#FFBDBDBD"/>
+        <Rectangle Height="95" Width="168" Canvas.Left="146" Canvas.Top="191" Stroke="#FFBDBDBD" Fill="#FFFFEFA8"/>
+        <Rectangle Height="285" Width="247" Canvas.Left="328" Canvas.Top="4" Stroke="#FFBDBDBD"/>
+        <Button x:Name="playbtn" Content="Play" Canvas.Left="25" Canvas.Top="10" Width="59" Height="34" Click="playbtn_Click"/>
+        <Button x:Name="stopbtn" Content="Stop" Canvas.Left="101" Canvas.Top="10" Width="59" Height="34" Click="stopbtn_Click"/>
+        <ComboBox x:Name="waveMenu" Canvas.Left="185" Canvas.Top="10" Width="118" Height="23" SelectionChanged="waveMenu_SelectionChanged" SelectedIndex="0">
+            <ComboBoxItem Content="Sine"/>
+            <ComboBoxItem Content="Square"/>
+            <ComboBoxItem Content="Triangle"/>
+            <ComboBoxItem Content="SawTooth"/>
+            <ComboBoxItem Content="Mixer"/>
+        </ComboBox>
+        <WrapPanel Height="18" Canvas.Left="171" Orientation="Horizontal" Canvas.Top="158">
+            <TextBox x:Name="frqValue" Height="18" TextWrapping="Wrap" Text="440" Width="62" BorderBrush="{x:Null}"/>
+            <TextBlock x:Name="label2" Text="Hz" RenderTransformOrigin="0.605,0.154"/>
+        </WrapPanel>
+        <ComboBox x:Name="precisionList" Canvas.Left="185" Canvas.Top="124" Width="118" BorderBrush="White" SelectionChanged="precisionList_SelectionChanged" Height="23">
+            <ComboBoxItem Content="Unlocked"/>
+            <ComboBoxItem Content="Octave"/>
+            <ComboBoxItem Content="1/2 Octave"/>
+            <ComboBoxItem Content="1/3 Octave"/>
+            <ComboBoxItem Content="1/6 Octave"/>
+            <ComboBoxItem Content="1/12 Octave"/>
+            <ComboBoxItem Content="1/24 Octave"/>
+        </ComboBox>
+        <TextBlock x:Name="textBlock" Canvas.Left="126" TextWrapping="Wrap" Text="Precision" Canvas.Top="127" Height="22"/>
+        <WrapPanel Height="44" Canvas.Left="32" Orientation="Vertical" Canvas.Top="62">
+            <Label x:Name="gainTitle" Content="Gain"/>
+            <Slider x:Name="gainSlider" Width="127" Maximum="0" Value="-10" ValueChanged="slider_ValueChanged" LargeChange="0" Minimum="-100" TickFrequency="2"/>
+        </WrapPanel>
+        <WrapPanel Height="62" Canvas.Left="33" Orientation="Vertical" Canvas.Top="122">
+            <Label x:Name="label" Content="Frequency" Height="38"/>
+            <Slider x:Name="frqSlider" Width="127" Minimum="27.5" Maximum="2000" Value="440" ValueChanged="frqSlider_ValueChanged"/>
+        </WrapPanel>
+        <WrapPanel Height="20" Canvas.Left="170" Orientation="Horizontal" Canvas.Top="86">
+            <TextBox x:Name="gainValue" Height="18" TextWrapping="Wrap" Text="{Binding Value, ElementName=gainSlider}" Width="62" BorderBrush="{x:Null}"/>
+            <TextBlock x:Name="label1" Text="dB"/>
+        </WrapPanel>
+        <ScrollViewer Canvas.Left="10" Canvas.Top="300" Height="114" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Width="{Binding Width, ElementName=main}">
+            <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Height="116.62" Width="1129.5">
+                <StackPanel Height="93.622" Canvas.Left="0" Canvas.Top="0" Width="1156.5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button x:Name="c2" Content="65.4064" Width="31.15" Foreground="{x:Null}" MouseEnter="piano_MouseEnter" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp"/>
+                    <Button x:Name="d2" Content="73.4162" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="e2" Content="82.4069" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="f2" Content="87.3071" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="g2" Content="97.9989" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="a2" Content="110.000" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="b2" Content="123.471" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="c3" Content="130.813" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="d3" Content="146.832" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="e3" Content="164.814" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="f3" Content="174.614" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="g3" Content="195.998" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="a3" Content="220.000" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="b3" Content="246.942" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="c4" Content="261.626" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="d4" Content="293.665" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="e4" Content="329.628" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="f4" Content="349.228" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="g4" Content="391.995" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="a4" Content="440.000" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="b4" Content="493.883" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="c5" Content="523.251" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="d5" Content="587.330" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="e5" Content="659.255" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="f5" Content="698.456" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="g5" Content="783.991" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="a5" Content="880.000" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="b5" Content="987.767" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="c6" Content="1046.50" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="d6" Content="1174.66" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="e6" Content="1318.51" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="f6" Content="1396.91" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="g6" Content="1567.98" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="a6" Content="1760.00" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    <Button x:Name="b6" Content="1975.53" Width="31.15" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+
+                </StackPanel>
+                <StackPanel Height="93.622" Canvas.Left="0" Canvas.Top="0" Width="1094" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid Height="91" Canvas.Left="16.852" Canvas.Top="209" Width="217.148" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="85*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="17*"/>
+                            <ColumnDefinition Width="45*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="21*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="c_2" Content="69.2957" Grid.Column="1" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="d_2" Content="77.7817" Grid.Column="3" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="f_2" Content="92.4986" Grid.Column="5" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="g_2" Content="103.826" Grid.Column="7" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="a_2" Content="116.541" Grid.Column="9" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    </Grid>
+                    <Grid Height="93.622" Canvas.Left="16.852" Canvas.Top="209" Width="217.148" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="85*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="17*"/>
+                            <ColumnDefinition Width="45*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="21*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="c_3" Content="138.591" Grid.Column="1" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="d_3" Content="155.563" Grid.Column="3" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="f_3" Content="184.997" Grid.Column="5" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="g_3" Content="207.652" Grid.Column="7" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="a_3" Content="233.082" Grid.Column="9" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    </Grid>
+                    <Grid Height="93.622" Canvas.Left="16.852" Canvas.Top="209" Width="217.148" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="85*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="17*"/>
+                            <ColumnDefinition Width="45*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="21*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="c_4" Content="277.183" Grid.Column="1" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="sfdgfdsg" Content="311.127" Grid.Column="3" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="rtwwrt" Content="369.994" Grid.Column="5" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="rhyry" Content="415.305" Grid.Column="7" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="gsrr" Content="466.164" Grid.Column="9" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    </Grid>
+                    <Grid Height="93.622" Canvas.Left="16.852" Canvas.Top="209" Width="217.148" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="85*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="17*"/>
+                            <ColumnDefinition Width="45*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="21*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="c_5" Content="554.365" Grid.Column="1" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="d_5" Content="622.254" Grid.Column="3" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="f_5" Content="739.989" Grid.Column="5" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="g_5" Content="830.609" Grid.Column="7" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="a_5" Content="932.328" Grid.Column="9" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    </Grid>
+                    <Grid Height="93.622" Canvas.Left="16.852" Canvas.Top="209" Width="217.148" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="85*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="17*"/>
+                            <ColumnDefinition Width="45*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="18*"/>
+                            <ColumnDefinition Width="21*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="c_6" Content="1108.73" Grid.Column="1" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="d_6" Content="1244.51" Grid.Column="3" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="f_6" Content="1479.98" Grid.Column="5" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="g_6" Content="1661.22" Grid.Column="7" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                        <Button x:Name="a_6" Content="1864.66" Grid.Column="9" Margin="0,-8.25,0,0" Background="Black" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin" Height="48.46" Grid.Row="1" VerticalAlignment="Top" Foreground="{x:Null}" MouseDown="piano_MouseDown" MouseUp="piano_MouseUp" MouseEnter="piano_MouseEnter"/>
+                    </Grid>
+                </StackPanel>
+            </Canvas>
+        </ScrollViewer>
+        <TextBlock x:Name="textBlock1" Canvas.Left="339" TextWrapping="Wrap" Text="Mixer" Canvas.Top="10" FontSize="13.333"/>
+        <TextBlock x:Name="textBlock2" Canvas.Left="339" TextWrapping="Wrap" Text="Osc 1" Canvas.Top="37"/>
+        <TextBlock x:Name="textBlock3" Canvas.Left="339" TextWrapping="Wrap" Text="Osc 2" Canvas.Top="83" RenderTransformOrigin="0.55,0.349"/>
+        <TextBlock x:Name="textBlock4" Canvas.Left="339" TextWrapping="Wrap" Text="Osc 3" Canvas.Top="133"/>
+        <ComboBox x:Name="osc1Menu" Canvas.Left="387" Canvas.Top="37" Width="82" Height="26" SelectionChanged="osc1Menu_SelectionChanged" SelectedIndex="0">
+            <ComboBoxItem Content="Sine"/>
+            <ComboBoxItem Content="Square"/>
+            <ComboBoxItem Content="Triangle"/>
+            <ComboBoxItem Content="SawTooth"/>
+        </ComboBox>
+        <ComboBox x:Name="osc2Menu" Canvas.Left="387" Canvas.Top="83" Width="82" Height="26" SelectionChanged="osc2Menu_SelectionChanged">
+            <ComboBoxItem Content="Sine"/>
+            <ComboBoxItem Content="Square"/>
+            <ComboBoxItem Content="Triangle"/>
+            <ComboBoxItem Content="SawTooth"/>
+        </ComboBox>
+        <ComboBox x:Name="osc3Menu" Canvas.Left="387" Canvas.Top="131" Width="82" Height="26" SelectionChanged="osc3Menu_SelectionChanged">
+            <ComboBoxItem Content="Sine"/>
+            <ComboBoxItem Content="Square"/>
+            <ComboBoxItem Content="Triangle"/>
+            <ComboBoxItem Content="SawTooth"/>
+        </ComboBox>
+        <Slider x:Name="osc1Gain" Canvas.Left="484" Canvas.Top="37" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" Minimum="-100" Maximum="0" Value="-20" ValueChanged="osc1Gain_ValueChanged"/>
+        <Slider x:Name="osc2Gain" Canvas.Left="484" Canvas.Top="83" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" ValueChanged="osc2Gain_ValueChanged"/>
+        <Slider x:Name="osc3Gain" Canvas.Left="484" Canvas.Top="129" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" ValueChanged="osc3Gain_ValueChanged"/>
+        <Label x:Name="label3" Content="Phase Reverse" Canvas.Left="32" Canvas.Top="194" Width="93" FontSize="13.333"/>
+        <CheckBox x:Name="PhaseLeft" Content="Left" Canvas.Left="42" Canvas.Top="227" Checked="PhaseLeft_Checked" Unchecked="PhaseLeft_Unchecked"/>
+        <CheckBox x:Name="PhaseRight" Content="Right" Canvas.Left="42" Canvas.Top="253" Checked="PhaseRight_Checked" Unchecked="PhaseRight_Unchecked"/>
+        <TextBlock x:Name="textBlock5" Canvas.Left="339" TextWrapping="Wrap" Canvas.Top="166" Text="Envelope" FontSize="13.333"/>
+        <Slider x:Name="attack" Canvas.Left="334" Canvas.Top="218" RenderTransformOrigin="0.5,0.5" Width="68" Maximum="1" ValueChanged="attack_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <TextBlock x:Name="textBlock6" Canvas.Left="351" TextWrapping="Wrap" Text="Attack" Canvas.Top="263" RenderTransformOrigin="1.394,-0.25"/>
+        <Slider x:Name="decay" Canvas.Left="389" Canvas.Top="217" RenderTransformOrigin="0.5,3.444" Width="68" Maximum="1" ValueChanged="decay_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="52.992" Y="-52.992"/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Slider x:Name="sustain" Canvas.Left="441" Canvas.Top="217" RenderTransformOrigin="0.5,3.444" Width="68" Maximum="1" Value="0.8" ValueChanged="sustain_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="52.992" Y="-52.992"/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Slider x:Name="release" Canvas.Left="499" Canvas.Top="217" RenderTransformOrigin="0.5,3.444" Width="68" Maximum="1" ValueChanged="release_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="52.992" Y="-52.992"/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <TextBlock x:Name="textBlock6_Copy" Canvas.Left="406" TextWrapping="Wrap" Text="Decay" Canvas.Top="263" RenderTransformOrigin="1.394,-0.25"/>
+        <TextBlock x:Name="textBlock6_Copy1" Canvas.Left="456" TextWrapping="Wrap" Text="Sustain" Canvas.Top="263" RenderTransformOrigin="1.394,-0.25"/>
+        <TextBlock x:Name="textBlock6_Copy2" Canvas.Left="514" TextWrapping="Wrap" Text="Release" Canvas.Top="263" RenderTransformOrigin="1.394,-0.25"/>
+        <Button x:Name="envOnOff" Content="Off" Canvas.Left="406" Canvas.Top="167" Width="32" Click="envOnOff_Click" Height="18" FontSize="10.667" Background="{x:Null}" IsCancel="True"/>
+    </Canvas>
+</Window>
