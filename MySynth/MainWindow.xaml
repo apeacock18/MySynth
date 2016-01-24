@@ -228,7 +228,7 @@
             <ComboBoxItem Content="Triangle"/>
             <ComboBoxItem Content="SawTooth"/>
         </ComboBox>
-        <ComboBox x:Name="osc2Menu" Canvas.Left="387" Canvas.Top="83" Width="82" Height="26" SelectionChanged="osc2Menu_SelectionChanged">
+        <ComboBox x:Name="osc2Menu" Canvas.Left="387" Canvas.Top="83" Width="82" Height="26" SelectionChanged="osc2Menu_SelectionChanged" SelectedIndex="0">
             <ComboBoxItem Content="Sine"/>
             <ComboBoxItem Content="Square"/>
             <ComboBoxItem Content="Triangle"/>
@@ -241,8 +241,8 @@
             <ComboBoxItem Content="SawTooth"/>
         </ComboBox>
         <Slider x:Name="osc1Gain" Canvas.Left="484" Canvas.Top="37" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" Minimum="-100" Maximum="0" Value="-20" ValueChanged="osc1Gain_ValueChanged"/>
-        <Slider x:Name="osc2Gain" Canvas.Left="484" Canvas.Top="83" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" ValueChanged="osc2Gain_ValueChanged"/>
-        <Slider x:Name="osc3Gain" Canvas.Left="484" Canvas.Top="129" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" ValueChanged="osc3Gain_ValueChanged"/>
+        <Slider x:Name="osc2Gain" Canvas.Left="484" Canvas.Top="83" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" ValueChanged="osc2Gain_ValueChanged" Maximum="0" Minimum="-100" Value="-100"/>
+        <Slider x:Name="osc3Gain" Canvas.Left="484" Canvas.Top="129" RenderTransformOrigin="0.417,0.497" Height="20" Width="77" ValueChanged="osc3Gain_ValueChanged" Maximum="0" Minimum="-100" Value="-100"/>
         <Label x:Name="label3" Content="Phase Reverse" Canvas.Left="32" Canvas.Top="194" Width="93" FontSize="13.333"/>
         <CheckBox x:Name="PhaseLeft" Content="Left" Canvas.Left="42" Canvas.Top="227" Checked="PhaseLeft_Checked" Unchecked="PhaseLeft_Unchecked"/>
         <CheckBox x:Name="PhaseRight" Content="Right" Canvas.Left="42" Canvas.Top="253" Checked="PhaseRight_Checked" Unchecked="PhaseRight_Unchecked"/>

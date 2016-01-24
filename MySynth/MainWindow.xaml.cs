@@ -124,7 +124,7 @@ namespace MySynth
         {
             SignalGeneratorType t = wave.Type;
             wave.Type = type;
-            if (t == SignalGeneratorType.Pink)
+            if (t != SignalGeneratorType.Pink)
             {
                 driverOut.Stop();
                 driverOut.Dispose();
@@ -139,11 +139,11 @@ namespace MySynth
             InitOsc();
 
             List<ISampleProvider> samples =  new List<ISampleProvider>();
-            if (osc1 != null)
-                samples.Add(osc1);
-            if (osc2 != null)
+            if (osc2Menu.SelectedIndex != -1)
                 samples.Add(osc2);
-            if (osc3 != null)
+            if (osc1Menu.SelectedIndex != -1)
+                samples.Add(osc1);
+            if (osc3Menu.SelectedIndex != -1)
                 samples.Add(osc3);
 
             mixer = new MixingSampleProvider(samples);
@@ -152,7 +152,7 @@ namespace MySynth
             driverOut.Dispose();
             driverOut = new WaveOut();
             driverOut.Init(mixer);
-            driverOut.Play();
+            WavePlay();
         }
 
         private void InitOsc()
@@ -194,6 +194,7 @@ namespace MySynth
                 {
                     case 0:
                         frqSlider.IsSnapToTickEnabled = false;
+                        frqSlider.Maximum = 2000;
                         break;
                     case 1:
                         frqSlider.IsSnapToTickEnabled = true;
@@ -255,6 +256,7 @@ namespace MySynth
         {
             wave.Frequency = Convert.ToDouble(((Button)sender).Content);
             WavePlay();
+            
         }
 
         private void piano_MouseUp(object sender, MouseButtonEventArgs e)
@@ -331,20 +333,20 @@ namespace MySynth
 
         private void osc1Gain_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (osc1 != null)
-                osc1.Gain = Decibels.DecibelsToLinear(e.NewValue);
+            osc1.Gain = Decibels.DecibelsToLinear(e.NewValue);
+            InitMixer();
         }
 
         private void osc2Gain_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (osc2 != null)
-                osc2.Gain = Decibels.DecibelsToLinear(e.NewValue);
+            osc2.Gain = Decibels.DecibelsToLinear(e.NewValue);
+            InitMixer();
         }
 
         private void osc3Gain_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (osc3 != null)
-                osc3.Gain = Decibels.DecibelsToLinear(e.NewValue);
+            osc3.Gain = Decibels.DecibelsToLinear(e.NewValue);
+            InitMixer();
         }
 
         private void osc1Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
